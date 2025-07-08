@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your 2FA Code</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #121212;
+        }
+        .email-container {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            padding: 30px;
+            text-align: center;
+        }
+        .email-header {
+            background-color: #b71c1c;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 20px;
+        }
+        .code {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #d32f2f;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #2d2d2d;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Clutch AI</h1>
+        </div>
+        
+        <h2>Your 2FA Code</h2>
+        
+        <p>Here's your two-factor authentication code:</p>
+        
+        <div class="code">{{otpCode}}</div>
+        
+        <p>This code will expire in 5 minutes.</p>
+        
+        <div class="footer">
+            <p>© {{year}} Clutch AI. All rights reserved.</p>
+            <p>If you didn't request this code, please ignore this email.</p>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,13 @@
+import express from 'express';
+import { getAllServicePricing, getServicePricingById, createServicePricing, updateServicePricing, updateBatchServicePricing, deleteServicePricing, initializeDefaultPricing } from '../controllers/servicePricingController.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
+const router = express.Router();
+router.use(authMiddleware);
+router.get('/', getAllServicePricing);
+router.get('/:id', getServicePricingById);
+router.post('/initialize', initializeDefaultPricing);
+router.post('/', createServicePricing);
+router.put('/:id', updateServicePricing);
+router.put('/batch/update', updateBatchServicePricing);
+router.delete('/:id', deleteServicePricing);
+export default router;
