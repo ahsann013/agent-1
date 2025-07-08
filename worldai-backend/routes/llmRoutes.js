@@ -1,0 +1,20 @@
+import express from 'express';
+import authMiddleware from '../middlewares/authMiddleware.js';
+import LLMController from '../controllers/llmController.js';
+
+const router = express.Router();
+
+// All routes require authentication and admin privileges
+router.use(authMiddleware);
+
+// CRUD routes
+router.get('/', LLMController.getAllModels);
+router.get('/:id', LLMController.getModelById);
+router.post('/', LLMController.createModel);
+router.put('/:id', LLMController.updateModel);
+router.delete('/:id', LLMController.deleteModel);
+router.put('/:id/set-default', LLMController.setDefaultModel);
+router.put('/:id/toggle-status', LLMController.toggleModelStatus);
+
+
+export default router;

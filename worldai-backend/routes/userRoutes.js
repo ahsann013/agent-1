@@ -1,0 +1,20 @@
+import express from 'express';
+import UserController from '../controllers/userController.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
+
+const router = express.Router();
+
+// All routes require authentication and admin privileges
+router.use(authMiddleware);
+
+// CRUD routes
+router.get('/', UserController.getAllUsers);
+router.get('/:id', UserController.getUserById);
+router.post('/', UserController.createUser);
+router.put('/:id', UserController.updateUser);
+router.put('/delete/:id', UserController.deleteUser);
+router.put('/restore/:id', UserController.restoreUser);
+router.post('/contact', UserController.sendContactEmail);
+
+
+export default router;

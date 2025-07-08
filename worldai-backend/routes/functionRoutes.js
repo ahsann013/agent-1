@@ -1,0 +1,16 @@
+// routes/authRoutes.js
+import express from 'express';
+import upload from '../middlewares/uploadMiddleware.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
+import FunctionController from '../controllers/functionController.js';
+
+const router = express.Router();
+
+router.use(authMiddleware);
+// Chat routes
+router.post('/chat', FunctionController.chat);
+router.post('/chat-with-agent', upload.single('file'), FunctionController.function_calling);
+router.get('/suggestions', FunctionController.getSuggestions);
+router.post('/get-chat-title', FunctionController.getChatTitle)
+
+export default router;
